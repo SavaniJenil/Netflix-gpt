@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
-import { signOut } from "firebase/auth";
-import { useSelector } from "react-redux";
+import { signOut, onAuthStateChanged } from "firebase/auth";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { addUser, removeUser } from "../store/userSlice";
+import { LOGO_URL, DEFAULT_USER_AVATAR_URL } from "../utils/constance";
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const userInfo = useSelector((store) => store.user);
 
@@ -12,19 +16,40 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigate("/");
       })
       .catch((error) => {
         // An error happened.
-        navigate("/error");
       });
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+
+    //unsubscribe when component unmounts
+    return () => unsubscribe();
+  }, []);
 
   return (
     <div className="absolute bg-gradient-to-b from-black z-[2]  w-full flex justify-between items-center">
       <img
-        className="w-60"
-        src="https://images.ctfassets.net/y2ske730sjqp/6bhPChRFLRxc17sR8jgKbe/6fa1c6e6f37acdc97ff635cf16ba6fb3/Logos-Readability-Netflix-logo.png"
+        className="w-40"
+        src={LOGO_URL}
         alt="app-logo"
       />
       {userInfo && (
@@ -34,7 +59,7 @@ const Header = () => {
             src={
               userInfo.photoURL
                 ? userInfo.photoURL
-                : "https://occ-0-1946-2186.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbCL6LUIHvRieXJLEY0Jq6AxJmhEiLpZ-9U42s2-XxOQLeA5D71cQBnph9xdZBQpwi-5SET231ylQqok29OIepgmRzHUEzY.png?r=7ae"
+                : {DEFAULT_USER_AVATAR_URL}
             }
             alt="user-logo"
           />

@@ -3,7 +3,6 @@ import { useRouteError } from "react-router-dom";
 const Error = () => {
 
     const err = useRouteError();
-    console.log(err);
     return (<div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
         <h1>Oops!!! Something went wrong. Please resolve below error.</h1>
         <h1>Error:{err.status} {err.error.message}</h1>
