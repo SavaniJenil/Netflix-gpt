@@ -5,7 +5,7 @@ import VideoTitle from "./VideoTitle";
 
 const MainContainer = () => {
 
-    const movies = useSelector(store => store.movies?.nowPlayingMovies);
+    const movies = useSelector(store => store.movies?.upcomingMovies);
 
     if(movies === null) return;
     const randomNumber = Math.floor(Math.random() * 20);
