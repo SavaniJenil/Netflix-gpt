@@ -12,7 +12,7 @@ export const DEFAULT_USER_AVATAR_URL =
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMzFmMWNlOWZkYmNmYmQ2YjE2ZGFlY2I4Njg0OGE3NyIsInN1YiI6IjY1MGU1M2M4M2E0YTEyMDExY2YyNzAyNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n9hj2RaBqPPwG27hSY5JgPKAQUcNwab2qhDk-SMOgWU'
+      Authorization: 'Bearer '+process.env.REACT_APP_TMDB_KEY,
     }
   };
 
@@ -22,4 +22,6 @@ export const DEFAULT_USER_AVATAR_URL =
     { identifier: "en", name:"English"},
     { identifier: "hindi", name:"Hindi"},
     { identifier: "gujarati", name:"Gujarati"},
-  ]
+  ];
+
+  export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
