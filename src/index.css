@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* styles.css or your CSS module */
+.scroll-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    width: 0;
+    display: none; /* Webkit (Safari/Chrome) */
+  }
+
+  /* Define the custom font family */
+.font-netflix-sans {
+  font-family: 'Netflix Sans', Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
+}
+
+  
+  

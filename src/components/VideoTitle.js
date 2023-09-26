@@ -1,17 +1,17 @@
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="pt-72 px-16 absolute text-white bg-gradient-to-r from-black bg-transparent h-[120%] aspect-video bg-opacity-80">
-      <h1 className="text-4xl font-semibold w-2/5">{title}</h1>
-      <p className="py-6 text-md w-1/3">{overview}</p>
-      <div className="flex flex-row">
-        <button className="cursor-pointer bg-white text-black flex justify-center items-center py-4 px-10 rounded-md hover:bg-opacity-90">
+    <div className="pt-20 md:pt-72 px-3 md:px-16 absolute text-white bg-gradient-to-r from-black bg-transparent h-[28%] w-[60%] md:h-[120%] md:w-full md:aspect-video bg-opacity-80">
+      <h1 className="text-lg md:text-4xl font-semibold md:w-2/5">{title}</h1>
+      <p className="hidden md:inline-block py-3 text-xs md:text-base w-1/3">{overview}</p>
+      <div className="flex flex-row mt-2">
+        <button className="cursor-pointer bg-white text-black flex justify-center items-center mt-1 md:m-0 px-4 md:py-4 md:px-10 rounded-md hover:bg-opacity-90">
           <svg
             width="24"
             height="24"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="ltr-4z3qvp e1svuwfo1"
+            className="ltr-4z3qvp e1svuwfo1 hidden md:inline-block"
             data-name="Play"
             aria-hidden="true"
           >
@@ -20,9 +20,9 @@ const VideoTitle = ({ title, overview }) => {
               fill="currentColor"
             ></path>
           </svg>
-          <p className="text-xl font-semibold pl-2">Play</p>
+          <p className="text-base md:text-xl font-semibold md:pl-2">Play</p>
         </button>
-        <button className="cursor-pointer bg-gray-500 bg-opacity-50 text-white py-4 px-8 rounded-md mx-3 text-xl font-semibold flex flex-row justify-center items-center hover:bg-opacity-60">
+        <button className="hidden md:flex cursor-pointer bg-gray-500 bg-opacity-50 text-white px-4 md:py-4 md:px-8 rounded-md mx-3 text-xl font-semibold flex-row justify-center items-center hover:bg-opacity-60">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
