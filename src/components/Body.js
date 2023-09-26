@@ -2,7 +2,7 @@ import Login from "./Login";
 import Browse from "./Browse";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./Error"
-
+import "../index.css";
 
 
 const Body = () => {
@@ -23,7 +23,7 @@ const Body = () => {
     ]);
 
     return(
-        <div>
+        <div className="font-netflix-sans">
             <RouterProvider router={appRouter} />
         </div>
     )

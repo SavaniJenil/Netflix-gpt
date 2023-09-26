@@ -122,17 +122,17 @@ const Login = () => {
       <Header />
       <div className="absolute bg-cover bg-gradient-to-b from-black h-full min-h-screen block ">
         <img
-          className="scale-y-110 "
+          className="h-screen object-cover md:h-auto md:scale-y-110"
           alt="bg-img"
           src={BG_IMG}
         />
       </div>
-      <div className="my-28 mx-auto right-0 left-0 w-[30%] absolute bg-black bg-opacity-80 rounded-lg ">
+      <div className="my-40 md:my-28 mx-auto right-0 left-0 w-[90%] md:w-[30%] absolute bg-black bg-opacity-70 md:bg-opacity-80 rounded-lg ">
         <form
           className=" text-white flex flex-col items-center p-12"
           onSubmit={(e) => e.preventDefault()}
         >
-          <h1 className="font-[600] text-3xl pb-6 text-white self-start">
+          <h1 className="font-[600] text-2xl md:text-3xl pb-6 text-white self-start">
             {isSignInForm ? "Sign In" : "Sign Up"}
           </h1>
           {!isSignInForm ? (
