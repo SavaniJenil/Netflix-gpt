@@ -1,8 +1,13 @@
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
-import usePopularMovies from "../hooks/usePopularMovies";
+import useAnimationMovies from "../hooks/useAnimationMovies";
 import useTopRatedMovies from "../hooks/useTopRatedMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
 import useTrendingMovies from "../hooks/useTrendingMovies";
+import useActionMovies from "../hooks/useActionMovies";
+import useComadyMovies from "../hooks/useComadyMovies";
+import useHorrorMovies from "../hooks/useHorroMovies";
+import useRomanticMovies from "../hooks/useRomanticMovies";
+import useSiFiMovies from "../hooks/useSiFiMovies";
 import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
@@ -13,10 +18,15 @@ const Browse = () => {
   const showGptSearch = useSelector((store) => store.GPT.showGPTSearch);
 
   useNowPlayingMovies();
-  usePopularMovies();
+  useAnimationMovies();
   useTopRatedMovies();
   useUpcomingMovies();
   useTrendingMovies();
+  useActionMovies();
+  useComadyMovies();
+  useHorrorMovies();
+  useRomanticMovies();
+  useSiFiMovies();
 
   return (
     <div className="">
