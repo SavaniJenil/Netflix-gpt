@@ -2,7 +2,6 @@ import MovieCard from "./MovieCard";
 import "../index.css";
 
 const MovieList = ({ title, movies }) => {
-  console.log(movies);
   return (
     // <div>
     <div className="px-2 md:px-6">

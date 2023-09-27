@@ -18,12 +18,15 @@ const useTrailerVideo = ( id ) =>{
       (video) => video.type === "Trailer"
     );
     const trailer = filterdData.length ? filterdData[0] : json.results[0];
+    console.log("Trailer key:",trailer?.key);
         dispatch(addTrailerVideo(trailer?.key));
   };
 
   useEffect(() => {
-    !trailerKey && getMovieVideos();
-  }, []);
+    if (id || !trailerKey) {
+      getMovieVideos();
+    }
+  }, [id]);
 };
 
 export default useTrailerVideo;

@@ -9,7 +9,7 @@ const useTrendingMovies = () => {
     const trendingMovies = useSelector(store => store.movies.trendingMovies);
 
     const getTrendingMovie = async () => {
-      const data = await fetch("https://api.themoviedb.org/3/movie/now_playing?page=1",API_OPTIONS);
+      const data = await fetch("https://api.themoviedb.org/3/trending/all/day?language=en-US",API_OPTIONS);
       const json = await data.json();
       dispatch(addTrendingMovies(json.results));
     };
